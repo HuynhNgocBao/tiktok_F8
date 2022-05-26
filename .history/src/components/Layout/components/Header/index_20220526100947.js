@@ -10,7 +10,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 const cx = classNames.bind(styles);
 function Header() {
-    const [searchResult, setSearchResult] = useState([1]);
+    // const [searchResult, setSearchResult] = useState([]);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>

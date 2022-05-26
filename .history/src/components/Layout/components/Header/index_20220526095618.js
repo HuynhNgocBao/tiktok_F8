@@ -10,13 +10,12 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 const cx = classNames.bind(styles);
 function Header() {
-    const [searchResult, setSearchResult] = useState([1]);
+    const [searchResult, setSearchResult] = useState([]);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="tiktok" />
                 <Tippy interactive
-                visible={searchResult.length > 0}
                     render={(attrs) => (
                             <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                                 <PopperWrapper>

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import styles from './Header.module.scss';
@@ -10,13 +10,15 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 const cx = classNames.bind(styles);
 function Header() {
-    const [searchResult, setSearchResult] = useState([1]);
+    const [searchResult, setSearchResult] = useState([]);
+    useEffect(()=>{
+        setSearchResult([1,2])
+    },2000)
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="tiktok" />
                 <Tippy interactive
-                visible={searchResult.length > 0}
                     render={(attrs) => (
                             <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                                 <PopperWrapper>
@@ -24,7 +26,7 @@ function Header() {
                                         Account
                                     </h4>
                                     <AccountItem/>
-
+                                    
                                 </PopperWrapper>
                             </div>
                     )}
