@@ -21,6 +21,7 @@ function Header() {
                 <img src={images.logo} alt="tiktok" />
                 <Tippy
                     interactive
+                    visible={searchResult.length > 0}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
@@ -43,7 +44,7 @@ function Header() {
                 </Tippy>
                 <div className={cx('action')}>
                     <Button text>Upload</Button>
-                    <Button primary leftIcon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Log in</Button>
+                    <Button primary rounded className=cx('custom-login')>Log in</Button>
                 </div>
             </div>
         </header>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react'
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
@@ -9,7 +9,7 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import Button from '~/components/Button';
+import Button from '~/components/Button'
 
 const cx = classNames.bind(styles);
 
@@ -19,15 +19,18 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="tiktok" />
-                <Tippy
-                    interactive
+                <Tippy interactive
+                visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Account</h4>
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
+                            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                                <PopperWrapper>
+                                    <h4 className={cx('search-title')}>
+                                        Account
+                                    </h4>
+                                    <AccountItem/>
+
+                                </PopperWrapper>
+                            </div>
                     )}
                 >
                     <div className={cx('search')}>
@@ -42,8 +45,8 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-                    <Button text>Upload</Button>
-                    <Button primary leftIcon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Log in</Button>
+                    <Button primary>Log in</Button>
+                    <Button >Register</Button>
                 </div>
             </div>
         </header>

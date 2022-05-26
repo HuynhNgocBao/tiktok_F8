@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react'
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
@@ -9,25 +9,25 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import Button from '~/components/Button';
-
 const cx = classNames.bind(styles);
-
 function Header() {
     const [searchResult, setSearchResult] = useState([1]);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="tiktok" />
-                <Tippy
-                    interactive
+                <Tippy interactive
+                visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Account</h4>
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
+                            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                                <PopperWrapper>
+                                    <h4 className={cx('search-title')}>
+                                        Account
+                                    </h4>
+                                    <AccountItem/>
+
+                                </PopperWrapper>
+                            </div>
                     )}
                 >
                     <div className={cx('search')}>
@@ -41,10 +41,7 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('action')}>
-                    <Button text>Upload</Button>
-                    <Button primary leftIcon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Log in</Button>
-                </div>
+                <div className={cx('action')}></div>
             </div>
         </header>
     );
