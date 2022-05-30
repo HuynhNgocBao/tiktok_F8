@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import * as searchService from '~/apiServices/searchServices'
+import * as request from '~/utils/request';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
@@ -23,13 +23,20 @@ function Search() {
         if (!debounced.trim()){
             return;
         }
-        const fetchAPI = async ()=>{
-            setLoading(true);
-            const result = await searchService.search(debounced);
-            setSearchResult(result);
-            setLoading(false);
-        }
-        fetchAPI();
+        
+
+        setLoading(true);
+        request.get('users/search', {
+            params: {
+                q: debounced,
+                type: 'less',
+            }
+        })
+            .then((res) => {
+                setSearchResult(res.data);
+                setLoading(false);
+            })
+            .catch(()=>setLoading(true));
     }, [debounced]);
 
     const handleClear = (e) => {

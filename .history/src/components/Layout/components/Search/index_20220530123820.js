@@ -23,13 +23,10 @@ function Search() {
         if (!debounced.trim()){
             return;
         }
+        setLoading(true);
         const fetchAPI = async ()=>{
-            setLoading(true);
-            const result = await searchService.search(debounced);
-            setSearchResult(result);
-            setLoading(false);
+            searchResult
         }
-        fetchAPI();
     }, [debounced]);
 
     const handleClear = (e) => {

@@ -29,7 +29,6 @@ function Search() {
             setSearchResult(result);
             setLoading(false);
         }
-        fetchAPI();
     }, [debounced]);
 
     const handleClear = (e) => {
