@@ -42,12 +42,8 @@ function Search() {
         setShowResult(false);
     }
     const handleChange = (e)=>{
-        const searchValue = e.target.value; 
-        if (searchValue.startsWith(' ')) return;
-        setSearchValue(searchValue);
-    }
-    const handleSubmit = (e)=>{
-        e.preventDefault();
+        const searchValue = 
+        setSearchValue(e.target.value);
     }
     return (
         <HeadlessTippy
@@ -82,7 +78,7 @@ function Search() {
                     </button>
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')} onMouseDown={handleSubmit}>
+                <button className={cx('search-btn')}>
                     <SearchIcon />
                 </button>
             </div>

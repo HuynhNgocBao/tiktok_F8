@@ -8,7 +8,7 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icon';
 import { useDebounce } from '~/components/hooks';
-
+import routesConfig from '~/config/routes'
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
@@ -41,14 +41,6 @@ function Search() {
     const handleHideResult = (e)=>{
         setShowResult(false);
     }
-    const handleChange = (e)=>{
-        const searchValue = e.target.value; 
-        if (searchValue.startsWith(' ')) return;
-        setSearchValue(searchValue);
-    }
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-    }
     return (
         <HeadlessTippy
             interactive
@@ -69,7 +61,7 @@ function Search() {
                 <input
                     placeholder="Search accounts and videos"
                     value={searchValue}
-                    onChange={handleChange}
+                    onChange={(e) => setSearchValue(e.target.value)}
                     ref={inputRef}
                     onFocus = {()=>setShowResult(true)}
                 />
@@ -82,7 +74,7 @@ function Search() {
                     </button>
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')} onMouseDown={handleSubmit}>
+                <button className={cx('search-btn')}>
                     <SearchIcon />
                 </button>
             </div>

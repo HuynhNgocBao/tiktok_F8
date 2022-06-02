@@ -1,3 +1,4 @@
+
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
@@ -5,11 +6,17 @@ import Tippy from '@tippyjs/react';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
-import { faEarthAsia, faEllipsisVertical, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion,faKeyboard } from '@fortawesome/free-regular-svg-icons';
+import {
+    faEarthAsia,
+    faEllipsisVertical,
+    faUser,
+    faCoins,
+    faGear,
+    faSignOut,
+} from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
-import { UploadIcon, MessageIcon } from '~/components/Icon';
-import routesConfig from '~/config/routes'
+import { UploadIcon,MessageIcon} from '~/components/Icon';
 import Search from '~/components/Layout/components/Search';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
@@ -77,20 +84,18 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
-                    <Image src={images.logo} alt="tiktok" />
-                </Link>
-                <Search />
+                <Link to='/' className=Ơcx('logo')><Image src={images.logo} alt="tiktok" /></Link>
+                <Search/>
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
                             <Tippy content="Upload video" placement="bottom" delay={[0, 200]}>
                                 <button className={cx('action-btn')}>
-                                    <UploadIcon />
+                                    <UploadIcon/>
                                 </button>
                             </Tippy>
                             <button className={cx('action-btn')}>
-                                <MessageIcon />
+                                <MessageIcon/>
                             </button>
                         </>
                     ) : (
@@ -106,15 +111,19 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleChange}>
                         {currentUser ? (
-                            <Image
-                                src="https://static.fullstack.edu.vn/static/media/f8-icon.7ad2b161d5e80c87e516.png"
-                                alt="Avatar"
-                                className={cx('user-avatar')}
-                            />
+                            
+                                <Image
+                                    src="https://static.fullstack.edu.vn/static/media/f8-icon.7ad2b161d5e80c87e516.png"
+                                    alt="Avatar"
+                                    className={cx('user-avatar')}
+                                />
+                            
                         ) : (
-                            <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
-                            </button>
+                            
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            
                         )}
                     </Menu>
                 </div>

@@ -9,7 +9,6 @@ import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icon
 import { faEarthAsia, faEllipsisVertical, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
 import { UploadIcon, MessageIcon } from '~/components/Icon';
-import routesConfig from '~/config/routes'
 import Search from '~/components/Layout/components/Search';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
@@ -77,7 +76,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
+                <Link to="/" className={cx('logo-link')}>
                     <Image src={images.logo} alt="tiktok" />
                 </Link>
                 <Search />

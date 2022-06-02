@@ -7,11 +7,11 @@ import Search from '~/pages/Search'
 import routesConfig from '~/config/routes'
 
 const publicRoutes = [
-    { path: routesConfig.home, component: Home },
-    { path: routesConfig.following, component: Following },
-    { path: routesConfig.profile, component: Profile },
-    { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
-    { path: routesConfig.search, component: Search, layout: null }
+    { path: routes, component: Home },
+    { path: '/following', component: Following },
+    { path: '/@:nickname', component: Profile },
+    { path: '/upload', component: Upload, layout: HeaderOnly },
+    { path: '/search', component: Search, layout: null }
 ];
 
 const privateRoutes = {};

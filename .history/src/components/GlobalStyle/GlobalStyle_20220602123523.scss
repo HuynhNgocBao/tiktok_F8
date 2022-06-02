@@ -69,6 +69,12 @@ body{
 
 @font-face {
     font-family: ProximaNova;
+    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: ProximaNova;
     src: url('/assets/fonts/Proxima-Nova-Bold.woff');
     font-weight: 700;
 }
