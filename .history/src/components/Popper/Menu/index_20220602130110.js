@@ -32,6 +32,7 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
 
     return (
         <Tippy
+            visible={true}
             offset={[16, 8]}
             interactive
             hideOnClick={hideOnClick}
@@ -49,7 +50,7 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
                                 }}
                             />
                         )}
-                        <div className={cx('menu-body')}>{renderItems()}</div>
+                        {renderItems()}
                     </PopperWrapper>
                 </div>
             )}

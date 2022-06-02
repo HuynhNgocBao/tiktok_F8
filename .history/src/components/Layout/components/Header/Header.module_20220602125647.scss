@@ -1,12 +1,10 @@
 .wrapper{
-    --search-border-radius: 92px;
-    --search-height: 46px;
-    --search-top-spacer: 9px;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
-    background-color: var(--white);
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 9px;
     --search-button-width: 52px;
     width: 100%;
     height: var(--default-layout-header-height, 60px);
@@ -14,7 +12,6 @@
     display: flex;
     justify-content: center;
 }
-
 
 .inner{
     width: var(--default-layout-width);

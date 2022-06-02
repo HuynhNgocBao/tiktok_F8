@@ -53,6 +53,7 @@ function Search() {
         // Avoid warning tippy
         <span>
             <HeadlessTippy
+                appendTo={() => document.body}
                 interactive
                 visible={showResult && searchResult.length > 0}
                 onClickOutside={handleHideResult}
@@ -86,7 +87,7 @@ function Search() {
                     </button>
                 </div>
             </HeadlessTippy>
-        </span>
+        </sp>
     );
 }
 

@@ -50,9 +50,10 @@ function Search() {
         e.preventDefault();
     };
     return (
-        // Avoid warning tippy
-        <span>
+        //
+        <div>
             <HeadlessTippy
+                appendTo={() => document.body}
                 interactive
                 visible={showResult && searchResult.length > 0}
                 onClickOutside={handleHideResult}
@@ -86,7 +87,7 @@ function Search() {
                     </button>
                 </div>
             </HeadlessTippy>
-        </span>
+        </div>
     );
 }
 

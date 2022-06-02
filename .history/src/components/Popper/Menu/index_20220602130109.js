@@ -7,10 +7,10 @@ import MenuItem from './MenuItem';
 import Header from './Header';
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
-function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false }) {
+function Menu({ children, items = [], onChange=defaultFn, hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
-
+    
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
@@ -20,8 +20,9 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
                     data={item}
                     onClick={() => {
                         if (isParent) {
-                            setHistory((prev) => [...prev, item.children]);
-                        } else {
+                            setHistory(prev=>[...prev,item.children]);
+                        }
+                        else{
                             onChange(item);
                         }
                     }}
@@ -32,24 +33,20 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
 
     return (
         <Tippy
-            offset={[16, 8]}
+        visible= {true}
+            offset={[16,8]}
             interactive
-            hideOnClick={hideOnClick}
+            hideOnClick = {hideOnClick}
             delay={[0, 700]}
             placement="bottom-end"
-            onHide={() => setHistory((prev) => prev.slice(0, 1))}
+            onHide={()=>setHistory((prev)=>prev.slice(0,1))}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title}
-                                onBack={() => {
-                                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-body')}>{renderItems()}</div>
+                        {history.length>1 && <Header title={current.title} onBack={()=>{
+                            setHistory(prev=>prev.slice(0,prev.length-1));
+                        }}/>}
+                        {renderItems()}
                     </PopperWrapper>
                 </div>
             )}

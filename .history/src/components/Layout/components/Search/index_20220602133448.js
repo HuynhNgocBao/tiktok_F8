@@ -53,6 +53,7 @@ function Search() {
         // Avoid warning tippy
         <span>
             <HeadlessTippy
+
                 interactive
                 visible={showResult && searchResult.length > 0}
                 onClickOutside={handleHideResult}
